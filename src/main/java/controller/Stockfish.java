@@ -1,4 +1,4 @@
-package com.example.licenta2;
+package controller;
 
 import ch.astorm.jchess.JChessGame;
 

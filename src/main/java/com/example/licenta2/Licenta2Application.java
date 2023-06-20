@@ -1,22 +1,15 @@
 package com.example.licenta2;
 
-import ch.astorm.jchess.JChessGame;
-import ch.astorm.jchess.core.Coordinate;
-import ch.astorm.jchess.core.Move;
-import ch.astorm.jchess.core.Moveable;
-import ch.astorm.jchess.core.Position;
+import controller.Stockfish;
+import controller.User;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
 import java.io.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import java.util.List;
-import java.util.Map;
 
 @SpringBootApplication
-public class Licenta2Application {
+public class Licenta2Application{
 
     public static void main(String[] args) throws IOException, InterruptedException {
         /*JChessGame game = JChessGame.newGame();
@@ -30,7 +23,7 @@ public class Licenta2Application {
 
         stockfish.getNextMove();
 
-        //SpringApplication.run(Licenta2Application.class, args);
+        SpringApplication.run(Licenta2Application.class, args);
 
     }
 
