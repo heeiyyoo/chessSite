@@ -60,7 +60,9 @@ public class Stockfish {
                 output.append(line).append('\n');
                 Matcher m = p.matcher(output);
                 if (m.find()) {
+
                     break;
+
                 }
             }
 

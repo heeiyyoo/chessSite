@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>W3.CSS Template</title>
+    <title>Licenta</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
+
         .button-container {
             position: absolute;
             top: 60px;
@@ -27,6 +28,12 @@
             bottom: 0;
             height: inherit;
         }
+        .chessboard-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: flex-start;
+        }
 
         /* Chessboard CSS */
         .board {
@@ -38,75 +45,180 @@
         }
         .square {
             border: 1px solid #999;
-            padding: 10px;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
+
         .black {
             background-color: #b58863;
         }
         .white {
             background-color: #f0d9b5;
         }
+
+        .notation {
+            display: flex;
+            justify-content: space-around;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .vertical-notation {
+            height: 600px;
+            flex-direction: column-reverse;
+            margin-right: 5px;
+        }
+
+        .horizontal-notation {
+            width: 600px;
+            margin-top: 5px;
+        }
+
+        .board-with-notation {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .notation-item {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .player-name-top,
+        .player-name-bottom {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 10px;
+            margin-top: 15px;
+        }
+
+
     </style>
 </head>
 <body>
-<!-- The rest of your HTML goes here -->
+
 
 <!-- Chessboard HTML -->
 <div class="w3-row w3-padding-64">
     <div class="w3-twothird w3-container">
-        <h1 class="w3-text-teal">Chess Board</h1>
-        <div class="board">
-            <!-- Replace with actual paths to your image files -->
-            <div class="square white"><img src="pieces/br.png"></div>
-            <div class="square black"><img src="pieces/bn.png"></div>
-            <div class="square white"><img src="pieces/bb.png"></div>
-            <div class="square black"><img src="pieces/bq.png"></div>
-            <div class="square white"><img src="pieces/bk.png"></div>
-            <div class="square black"><img src="pieces/bb.png"></div>
-            <div class="square white"><img src="pieces/bn.png"></div>
-            <div class="square black"><img src="pieces/br.png"></div>
-
-            <!-- Second row -->
-            <div class="square black"><img src="pieces/bp.png"></div>
-            <div class="square white"><img src="pieces/bp.png"></div>
-            <div class="square black"><img src="pieces/bp.png"></div>
-            <div class="square white"><img src="pieces/bp.png"></div>
-            <div class="square black"><img src="pieces/bp.png"></div>
-            <div class="square white"><img src="pieces/bp.png"></div>
-            <div class="square black"><img src="pieces/bp.png"></div>
-            <div class="square white"><img src="pieces/bp.png"></div>
-
-            <!-- Empty rows -->
-            <!-- Repeat for rows 3-6, replacing <img src="bx.png"> with nothing or a placeholder -->
-
-            <!-- Seventh row -->
-            <div class="square black"><img src="pieces/wp.png"></div>
-            <div class="square white"><img src="pieces/wp.png"></div>
-            <div class="square black"><img src="pieces/wp.png"></div>
-            <div class="square white"><img src="pieces/wp.png"></div>
-            <div class="square black"><img src="pieces/wp.png"></div>
-            <div class="square white"><img src="pieces/wp.png"></div>
-            <div class="square black"><img src="pieces/wp.png"></div>
-            <div class="square white"><img src="pieces/wp.png"></div>
-
-            <!-- Eighth row -->
-            <div class="square white"><img src="pieces/wr.png"></div>
-            <div class="square black"><img src="pieces/wn.png"></div>
-            <div class="square white"><img src="pieces/wb.png"></div>
-            <div class="square black"><img src="pieces/wq.png"></div>
-            <div class="square white"><img src="pieces/wk.png"></div>
-            <div class="square black"><img src="pieces/wb.png"></div>
-            <div class="square white"><img src="pieces/wn.png"></div>
-            <div class="square black"><img src="pieces/wr.png"></div>
+        <div class="player-name-top">Player 1</div>
+        <div class="chessboard-container">
+        <div class="notation vertical-notation">
+            <div class="notation-item">8</div>
+            <div class="notation-item">7</div>
+            <div class="notation-item">6</div>
+            <div class="notation-item">5</div>
+            <div class="notation-item">4</div>
+            <div class="notation-item">3</div>
+            <div class="notation-item">2</div>
+            <div class="notation-item">1</div>
         </div>
+            <div class="board-with-notation">
+                <div class="board">
+
+                    <!-- Replace with actual paths to your image files -->
+                    <div class="square white"><img src="pieces/br.png"></div>
+                    <div class="square black"><img src="pieces/bn.png"></div>
+                    <div class="square white"><img src="pieces/bb.png"></div>
+                    <div class="square black"><img src="pieces/bq.png"></div>
+                    <div class="square white"><img src="pieces/bk.png"></div>
+                    <div class="square black"><img src="pieces/bb.png"></div>
+                    <div class="square white"><img src="pieces/bn.png"></div>
+                    <div class="square black"><img src="pieces/br.png"></div>
+
+                    <!-- Second row -->
+                    <div class="square black"><img src="pieces/bp.png"></div>
+                    <div class="square white"><img src="pieces/bp.png"></div>
+                    <div class="square black"><img src="pieces/bp.png"></div>
+                    <div class="square white"><img src="pieces/bp.png"></div>
+                    <div class="square black"><img src="pieces/bp.png"></div>
+                    <div class="square white"><img src="pieces/bp.png"></div>
+                    <div class="square black"><img src="pieces/bp.png"></div>
+                    <div class="square white"><img src="pieces/bp.png"></div>
+
+                    <!-- Third row to Sixth row -->
+                    <div class="square white"></div>
+                    <div class="square black"></div>
+                    <div class="square white"></div>
+                    <div class="square black"></div>
+                    <div class="square white"></div>
+                    <div class="square black"></div>
+                    <div class="square white"></div>
+                    <div class="square black"></div>
+
+                    <div class="square black"></div>
+                    <div class="square white"></div>
+                    <div class="square black"></div>
+                    <div class="square white"></div>
+                    <div class="square black"></div>
+                    <div class="square white"></div>
+                    <div class="square black"></div>
+                    <div class="square white"></div>
+
+                    <div class="square white"></div>
+                    <div class="square black"></div>
+                    <div class="square white"></div>
+                    <div class="square black"></div>
+                    <div class="square white"></div>
+                    <div class="square black"></div>
+                    <div class="square white"></div>
+                    <div class="square black"></div>
+
+                    <div class="square black"></div>
+                    <div class="square white"></div>
+                    <div class="square black"></div>
+                    <div class="square white"></div>
+                    <div class="square black"></div>
+                    <div class="square white"></div>
+                    <div class="square black"></div>
+                    <div class="square white"></div>
+
+                    <!-- Seventh row -->
+                    <div class="square white"><img src="pieces/wp.png"></div>
+                    <div class="square black"><img src="pieces/wp.png"></div>
+                    <div class="square white"><img src="pieces/wp.png"></div>
+                    <div class="square black"><img src="pieces/wp.png"></div>
+                    <div class="square white"><img src="pieces/wp.png"></div>
+                    <div class="square black"><img src="pieces/wp.png"></div>
+                    <div class="square white"><img src="pieces/wp.png"></div>
+                    <div class="square black"><img src="pieces/wp.png"></div>
+
+                    <!-- Eighth row -->
+                    <div class="square black"><img src="pieces/wr.png"></div>
+                    <div class="square white"><img src="pieces/wn.png"></div>
+                    <div class="square black"><img src="pieces/wb.png"></div>
+                    <div class="square white"><img src="pieces/wq.png"></div>
+                    <div class="square black"><img src="pieces/wk.png"></div>
+                    <div class="square white"><img src="pieces/wb.png"></div>
+                    <div class="square black"><img src="pieces/wn.png"></div>
+                    <div class="square white"><img src="pieces/wr.png"></div>
+
+
+                </div>
+                    <div class="notation horizontal-notation">
+                <div class="notation horizontal-notation">
+                <div class="notation-item">a</div>
+                <div class="notation-item">b</div>
+                <div class="notation-item">c</div>
+                <div class="notation-item">d</div>
+                <div class="notation-item">e</div>
+                <div class="notation-item">f</div>
+                <div class="notation-item">g</div>
+                <div class="notation-item">h</div>
+
+                    </div>
+        </div>
+
     </div>
+        </div>
+        <div class="player-name-bottom">Player 2</div>
+</div>
+</div>
 </div>
 
-<div class="button-container">
-    <button class="w3-button w3-black">Button 1</button>
-    <button class="w3-button w3-black">Button 2</button>
-    <button class="w3-button w3-black">Button 3</button>
-</div>
 
 <!-- Navbar -->
 <div class="w3-top">
@@ -117,23 +229,22 @@
         <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Values</a>
         <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">News</a>
         <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
-        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Clients</a>
-        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Partners</a>
+
     </div>
 </div>
 
 <!-- Sidebar -->
-<nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
-    <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
-        <i class="fa fa-remove"></i>
-    </a>
-    <h4 class="w3-bar-item"><b>Menu</b></h4>
-    <a class="w3-bar-item w3-button w3-hover-black" href="#">Link</a>
-    <a class="w3-bar-item w3-button w3-hover-black" href="#">Link</a>
-    <a class="w3-bar-item w3-button w3-hover-black" href="#">Link</a>
-    <a class="w3-bar-item w3-button w3-hover-black" href="#">Link</a>
-</nav>
 
+    <nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
+        <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
+            <i class="fa fa-remove"></i>
+        </a>
+        <h4 class="w3-bar-item"><b>Menu</b></h4>
+        <a class="w3-bar-item w3-button w3-hover-black" href="#">Link</a>
+        <a class="w3-bar-item w3-button w3-hover-black" href="#">Link</a>
+        <a class="w3-bar-item w3-button w3-hover-black" href="#">Link</a>
+        <a class="w3-bar-item w3-button w3-hover-black" href="#">Link</a>
+    </nav>
 <!-- Overlay effect when opening sidebar on small screens -->
 <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
@@ -145,22 +256,6 @@
             <h1 class="w3-text-teal">Heading</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
                 dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-
-
-            <div class="w3-row">
-                <div class="w3-twothird w3-container">
-                    <h1 class="w3-text-teal">Heading</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
-                        dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-
-
-                    <div class="w3-row w3-padding-64">
-                        <div class="w3-twothird w3-container">
-                            <h1 class="w3-text-teal">Heading</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
-                                dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        </div>
-
 
                         <!-- Pagination -->
                         <div class="w3-center w3-padding-32">
@@ -183,6 +278,11 @@
                         </footer>
 
                         <!-- END MAIN -->
+                    </div>
+
+            </div>
+
+    </div>
                     </div>
 
                     <script>
@@ -208,7 +308,43 @@
                             mySidebar.style.display = "none";
                             overlayBg.style.display = "none";
                         }
+                        const images = document.querySelectorAll('.square img');
+                        let activePiece = null;
+
+                        images.forEach((img) => {
+                            // Add draggable attribute
+                            img.setAttribute('draggable', true);
+                            // Attach event listeners
+                            img.addEventListener('dragstart', handleDragStart);
+                        });
+
+                        function handleDragStart(e) {
+                            activePiece = e.target;
+                        }
+
+                        // Get all squares
+                        const squares = document.querySelectorAll('.square');
+
+                        squares.forEach((square) => {
+                            square.addEventListener('dragover', handleDragOver);
+                            square.addEventListener('drop', handleDrop);
+                        });
+
+                        function handleDragOver(e) {
+                            e.preventDefault(); // This is necessary to allow the drop to happen
+                        }
+
+                        function handleDrop(e) {
+                            if (activePiece) {
+                                // Remove the piece from its current square
+                                activePiece.parentNode.removeChild(activePiece);
+                                // Add the piece to the new square
+                                e.target.appendChild(activePiece);
+                                activePiece = null; // Clear the active piece
+                            }
+                        }
                     </script>
 
 </body>
+
 </html>
