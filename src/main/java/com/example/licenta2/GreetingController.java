@@ -19,4 +19,20 @@ public class GreetingController {
         return "learnmain";
     }
 
+    @GetMapping("/learnknight")
+    public String learnKnight(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
+        model.addAttribute("name", name);
+        return "learnknight";
+    }
+    @GetMapping("/learnrook")
+        public String learnRook(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
+        model.addAttribute("name", name);
+        return "learnrook";
+    }
+    @GetMapping("/learnbishop")
+    public String learnBishop(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
+        model.addAttribute("name", name);
+        return "learnbishop";
+    }
+
 }
