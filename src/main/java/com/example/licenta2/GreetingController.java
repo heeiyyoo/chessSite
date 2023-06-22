@@ -34,5 +34,20 @@ public class GreetingController {
         model.addAttribute("name", name);
         return "learnbishop";
     }
+    @GetMapping("/learnking")
+    public String learnKing(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
+        model.addAttribute("name", name);
+        return "learnking";
+    }
+    @GetMapping("/learnqueen")
+    public String learnQueen(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
+        model.addAttribute("name", name);
+        return "learnqueen";
+    }
+    @GetMapping("/puzzle1")
+    public String learnPuzzle1(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
+        model.addAttribute("name", name);
+        return "puzzle1";
+    }
 
 }
