@@ -55,5 +55,10 @@ public class GreetingController {
         model.addAttribute("name", name);
         return "openingKI";
     }
+    @GetMapping("/coordinates")
+    public String learnCoordinates(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
+        model.addAttribute("name", name);
+        return "coordinates";
+    }
 
 }

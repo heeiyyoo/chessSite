@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Licenta</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+
+    body {
+      background-color: #e9e9e9; /* Replace with desired gray color code */
+    }
+
+    .text {
+      font-size: 17px; /* Adjust the font size as needed */
+    }
+    .text-subtitle {
+      font-size: 45px; /* Adjust the font size as needed */
+    }
+
+    html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
+    .w3-sidebar {
+      z-index: 3;
+      width: 250px;
+      top: 43px;
+      bottom: 0;
+      height: inherit;
+    }
+    .button-container .w3-button {
+      display: block;
+      margin-bottom: 10px;
+    }
+    .chessboard-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    /* Chessboard CSS */
+    .board {
+      width: 600px;
+      height: 600px;
+      margin: 20px auto;
+      display: grid;
+      grid-template: repeat(8, 1fr) / repeat(8, 1fr);
+    }
+    .square {
+      border: 1px solid #999;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .black {
+      background-color: #b58863;
+    }
+    .white {
+      background-color: #f0d9b5;
+    }
+
+
+    .board-with-notation {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+  </style>
+</head>
+<body>
+
+
+<!-- Chessboard HTML -->
+<div class="w3-row w3-padding-64">
+  <div class="w3-twothird w3-container">
+    <div class="chessboard-container">
+      <div class="board-with-notation">
+        <div class="board">
+          <!-- First row -->
+          <div class="square white" data-color="white" data-position="a8"></div>
+          <div class="square black" data-color="black" data-position="b8"></div>
+          <div class="square white" data-color="white" data-position="c8"></div>
+          <div class="square black" data-color="black" data-position="d8"></div>
+          <div class="square white" data-color="white" data-position="e8"></div>
+          <div class="square black" data-color="black" data-position="f8"></div>
+          <div class="square white" data-color="white" data-position="g8"></div>
+          <div class="square black" data-color="black" data-position="h8"></div>
+
+          <!-- Second row -->
+          <div class="square black" data-color="black" data-position="a7"></div>
+          <div class="square white" data-color="white" data-position="b7"></div>
+          <div class="square black" data-color="black" data-position="c7"></div>
+          <div class="square white" data-color="white" data-position="d7"></div>
+          <div class="square black" data-color="black" data-position="e7"></div>
+          <div class="square white" data-color="white" data-position="f7"></div>
+          <div class="square black" data-color="black" data-position="g7"></div>
+          <div class="square white" data-color="white" data-position="h7"></div>
+
+          <!-- The empty squares from third row to sixth row will be similar, I'll only add one row for brevity -->
+          <div class="square white" data-color="white" data-position="a6"></div>
+          <div class="square black" data-color="black" data-position="b6"></div>
+          <div class="square white" data-color="white" data-position="c6"></div>
+          <div class="square black" data-color="black" data-position="d6"></div>
+          <div class="square white" data-color="white" data-position="e6"></div>
+          <div class="square black" data-color="black" data-position="f6"></div>
+          <div class="square white" data-color="white" data-position="g6"></div>
+          <div class="square black" data-color="black" data-position="h6"></div>
+
+          <div class="square black" data-color="black" data-position="a5"></div>
+          <div class="square white" data-color="white" data-position="b5"></div>
+          <div class="square black" data-color="black" data-position="c5"></div>
+          <div class="square white" data-color="white" data-position="d5"></div>
+          <div class="square black" data-color="black" data-position="e5"></div>
+          <div class="square white" data-color="white" data-position="f5"></div>
+          <div class="square black" data-color="black" data-position="g5"></div>
+          <div class="square white" data-color="white" data-position="h5"></div>
+
+          <div class="square white" data-color="white" data-position="a4"></div>
+          <div class="square black" data-color="black" data-position="b4"></div>
+          <div class="square white" data-color="white" data-position="c4"></div>
+          <div class="square black" data-color="black" data-position="d4"></div>
+          <div class="square white" data-color="white" data-position="e4"></div>
+          <div class="square black" data-color="black" data-position="f4"></div>
+          <div class="square white" data-color="white" data-position="g4"></div>
+          <div class="square black" data-color="black" data-position="h4"></div>
+
+          <div class="square black" data-color="black" data-position="a3"></div>
+          <div class="square white" data-color="white" data-position="b3"></div>
+          <div class="square black" data-color="black" data-position="c3"></div>
+          <div class="square white" data-color="white" data-position="d3"></div>
+          <div class="square black" data-color="black" data-position="e3"></div>
+          <div class="square white" data-color="white" data-position="f3"></div>
+          <div class="square black" data-color="black" data-position="g3"></div>
+          <div class="square white" data-color="white" data-position="h3"></div>
+
+          <!-- The seventh row -->
+          <div class="square white" data-color="white" data-position="a2"></div>
+          <div class="square black" data-color="black" data-position="b2"></div>
+          <div class="square white" data-color="white" data-position="c2"></div>
+          <div class="square black" data-color="black" data-position="d2"></div>
+          <div class="square white" data-color="white" data-position="e2"></div>
+          <div class="square black" data-color="black" data-position="f2"></div>
+          <div class="square white" data-color="white" data-position="g2"></div>
+          <div class="square black" data-color="black" data-position="h2"></div>
+
+          <!-- Eighth row -->
+          <div class="square black" data-color="black" data-position="a1"></div>
+          <div class="square white" data-color="white" data-position="b1"></div>
+          <div class="square black" data-color="black" data-position="c1"></div>
+          <div class="square white" data-color="white" data-position="d1"></div>
+          <div class="square black" data-color="black" data-position="e1"></div>
+          <div class="square white" data-color="white" data-position="f1"></div>
+          <div class="square black" data-color="black" data-position="g1"></div>
+          <div class="square white" data-color="white" data-position="h1"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="w3-third w3-container">
+    <div class="w3-margin-top w3-left-align">
+      <h2 class="text-subtitle">Invață Coordonate</h2>
+      <p class="text">Acest joc testează cât de bine știi coordonatele unei table de șah, atunci când nu mai ai acces la ele.</p>
+      <div id="message" style="font-size: 2em; margin-left: 20px;"></div>
+      <div id="points" style="font-size: 2em; margin-left: 20px;"></div>
+      <div id="image" style="margin-left: 20px;"></div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+    <a href="play" class="w3-bar-item w3-button w3-theme-l1">Joacă</a>
+    <a href="learnmain" class="w3-bar-item w3-button w3-hide-small w3-hover-white">învață</a>
+    <a href="puzzle1" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Puzzle</a>
+    <a href="openingKI" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Deschidere</a>
+    <a href="coordinates" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Coordonate</a>
+  </div>
+</div>
+
+
+<!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
+<div class="w3-main" style="margin-left:250px">
+
+  <div class="w3-row w3-padding-64">
+    <div class="w3-twothird w3-container">
+      <h1 class="w3-text-teal">Heading</h1>
+
+
+      <!-- Pagination -->
+
+
+      <footer id="myFooter">
+        <div class="w3-container w3-theme-l2 w3-padding-32">
+          <h4>Footer</h4>
+        </div>
+
+
+      </footer>
+
+      <!-- END MAIN -->
+    </div>
+
+  </div>
+
+</div>
+</div>
+
+<script>
+  // Get the Sidebar
+  var mySidebar = document.getElementById("mySidebar");
+
+  // Get the DIV with overlay effect
+  var overlayBg = document.getElementById("myOverlay");
+
+  // Toggle between showing and hiding the sidebar, and add overlay effect
+  function w3_open() {
+    if (mySidebar.style.display === 'block') {
+      mySidebar.style.display = 'none';
+      overlayBg.style.display = "none";
+    } else {
+      mySidebar.style.display = 'block';
+      overlayBg.style.display = "block";
+    }
+  }
+
+  // Close the sidebar with the close button
+  function w3_close() {
+    mySidebar.style.display = "none";
+    overlayBg.style.display = "none";
+  }
+  const positions = [
+    "a8", "b8", "c8", "d8", "e8", "f8", "g8", "h8",
+    "a7", "b7", "c7", "d7", "e7", "f7", "g7", "h7",
+    "a6", "b6", "c6", "d6", "e6", "f6", "g6", "h6",
+    "a5", "b5", "c5", "d5", "e5", "f5", "g5", "h5",
+    "a4", "b4", "c4", "d4", "e4", "f4", "g4", "h4",
+    "a3", "b3", "c3", "d3", "e3", "f3", "g3", "h3",
+    "a2", "b2", "c2", "d2", "e2", "f2", "g2", "h2",
+    "a1", "b1", "c1", "d1", "e1", "f1", "g1", "h1",
+  ];
+
+  let points = 0;
+  document.getElementById('points').innerText = 'Points: ' + points;
+
+  // Step 2: Function to pick a random position
+  function getRandomPosition() {
+    const randomIndex = Math.floor(Math.random() * positions.length);
+    return positions[randomIndex];
+  }
+
+  // Step 3: Display the picked position in the message div
+  let pickedPosition = getRandomPosition();
+  document.getElementById('message').innerText = 'Please click on the square ' + pickedPosition;
+
+  // Step 4: Event listener for squares
+  const squares = document.getElementsByClassName('square');
+  for(let i=0; i < squares.length; i++) {
+    squares[i].addEventListener('click', function() {
+      const clickedPosition = this.getAttribute('data-position');
+      if(clickedPosition === pickedPosition) {
+        points += 3;
+        document.getElementById('message').innerText = 'Success! You clicked on the right square.';
+        document.getElementById('image').innerHTML = '<img src="pieces/Green_tick.png " style="width: 250px;">';
+        // Pick another position for the next round
+        pickedPosition = getRandomPosition();
+        document.getElementById('message').innerText += ' Now please click on the square ' + pickedPosition;
+      } else {
+        points -= 1;
+        document.getElementById('message').innerText = 'Fail. That was not ' + pickedPosition + '. Please try again.';
+        document.getElementById('image').innerHTML = '<img src="pieces/red_X.png" style="width: 250px;">';
+      }
+      // Update points display
+      document.getElementById('points').innerText = 'Points: ' + points;
+    });
+  }
+</script>
+
+</body>
+
+</html>
