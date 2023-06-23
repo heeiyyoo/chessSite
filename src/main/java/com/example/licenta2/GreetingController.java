@@ -50,4 +50,10 @@ public class GreetingController {
         return "puzzle1";
     }
 
+    @GetMapping("/openingKI")
+    public String learnOpeningsKI(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
+        model.addAttribute("name", name);
+        return "openingKI";
+    }
+
 }
