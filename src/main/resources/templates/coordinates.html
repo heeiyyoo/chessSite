@@ -166,6 +166,7 @@
     <div class="w3-margin-top w3-left-align">
       <h2 class="text-subtitle">Invață Coordonate</h2>
       <p class="text">Acest joc testează cât de bine știi coordonatele unei table de șah, atunci când nu mai ai acces la ele.</p>
+      <button id="start-game">Start Game</button>
       <div id="message" style="font-size: 2em; margin-left: 20px;"></div>
       <div id="points" style="font-size: 2em; margin-left: 20px;"></div>
       <div id="image" style="margin-left: 20px;"></div>
@@ -217,28 +218,6 @@
 </div>
 
 <script>
-  // Get the Sidebar
-  var mySidebar = document.getElementById("mySidebar");
-
-  // Get the DIV with overlay effect
-  var overlayBg = document.getElementById("myOverlay");
-
-  // Toggle between showing and hiding the sidebar, and add overlay effect
-  function w3_open() {
-    if (mySidebar.style.display === 'block') {
-      mySidebar.style.display = 'none';
-      overlayBg.style.display = "none";
-    } else {
-      mySidebar.style.display = 'block';
-      overlayBg.style.display = "block";
-    }
-  }
-
-  // Close the sidebar with the close button
-  function w3_close() {
-    mySidebar.style.display = "none";
-    overlayBg.style.display = "none";
-  }
   const positions = [
     "a8", "b8", "c8", "d8", "e8", "f8", "g8", "h8",
     "a7", "b7", "c7", "d7", "e7", "f7", "g7", "h7",
@@ -249,9 +228,20 @@
     "a2", "b2", "c2", "d2", "e2", "f2", "g2", "h2",
     "a1", "b1", "c1", "d1", "e1", "f1", "g1", "h1",
   ];
-
+  let isGameStarted = false;
   let points = 0;
-  document.getElementById('points').innerText = 'Points: ' + points;
+  let pickedPosition;
+
+  // Get the start button
+  const startButton = document.getElementById('start-game');
+
+  // Add a click event to start the game
+  startButton.addEventListener('click', function() {
+    isGameStarted = true;
+    // Pick the initial position when game starts
+    pickedPosition = getRandomPosition();
+    document.getElementById('message').innerText = 'Apasa pe căsuța ' + pickedPosition;
+  });
 
   // Step 2: Function to pick a random position
   function getRandomPosition() {
@@ -259,29 +249,27 @@
     return positions[randomIndex];
   }
 
-  // Step 3: Display the picked position in the message div
-  let pickedPosition = getRandomPosition();
-  document.getElementById('message').innerText = 'Please click on the square ' + pickedPosition;
-
   // Step 4: Event listener for squares
   const squares = document.getElementsByClassName('square');
   for(let i=0; i < squares.length; i++) {
     squares[i].addEventListener('click', function() {
-      const clickedPosition = this.getAttribute('data-position');
-      if(clickedPosition === pickedPosition) {
-        points += 3;
-        document.getElementById('message').innerText = 'Success! You clicked on the right square.';
-        document.getElementById('image').innerHTML = '<img src="pieces/Green_tick.png " style="width: 250px;">';
-        // Pick another position for the next round
-        pickedPosition = getRandomPosition();
-        document.getElementById('message').innerText += ' Now please click on the square ' + pickedPosition;
-      } else {
-        points -= 1;
-        document.getElementById('message').innerText = 'Fail. That was not ' + pickedPosition + '. Please try again.';
-        document.getElementById('image').innerHTML = '<img src="pieces/red_X.png" style="width: 250px;">';
+      // Only respond to clicks if the game has started
+      if(isGameStarted) {
+        const clickedPosition = this.getAttribute('data-position');
+        if(clickedPosition === pickedPosition) {
+          points += 3;
+          document.getElementById('message').innerText = 'Bravo! Ai apăsat pe căsuța corectă.';
+          document.getElementById('image').innerHTML = '<img src="pieces/Green_tick.png " style="width: 250px;">';
+          // Pick another position for the next round only when the correct square was guessed
+          pickedPosition = getRandomPosition();
+          document.getElementById('message').innerText = 'Apasa pe căsuța ' + pickedPosition;
+        } else {
+          points -= 1; // Deduct points for wrong guess
+          document.getElementById('message').innerText = 'Ai apăsat pe căsuța greșită. Continua să încerci să apăși pe căsuța ' + pickedPosition + '.';
+          document.getElementById('image').innerHTML = '<img src="pieces/Red_X.png" style="width: 250px;">';
+        }
+        document.getElementById('points').innerText = 'Points: ' + points;
       }
-      // Update points display
-      document.getElementById('points').innerText = 'Points: ' + points;
     });
   }
 </script>
