@@ -167,6 +167,7 @@
       <h2 class="text-subtitle">Invață Coordonate</h2>
       <p class="text">Acest joc testează cât de bine știi coordonatele unei table de șah, atunci când nu mai ai acces la ele.</p>
       <button id="start-game">Start Game</button>
+      <p id="timer" style="font-size: 2em; margin-left: 20px;"></p>
       <div id="message" style="font-size: 2em; margin-left: 20px;"></div>
       <div id="points" style="font-size: 2em; margin-left: 20px;"></div>
       <div id="image" style="margin-left: 20px;"></div>
@@ -234,15 +235,42 @@
 
   // Get the start button
   const startButton = document.getElementById('start-game');
-
+  const timerElement = document.getElementById('timer'); // assuming you have a timer element in your HTML
   // Add a click event to start the game
+
+  function startCountdown() {
+    let timeLeft = 30;
+
+    timerElement.innerText = timeLeft + ' secunde rămase'; // initially set the timer to 30 seconds
+
+    // decrease the time left by one every second
+    gameTimer = setInterval(function() {
+      timeLeft--;
+      timerElement.innerText = timeLeft + ' secunde rămase';
+
+      // when time runs out, stop the timer and end the game
+
+    }, 1000);
+  }
   startButton.addEventListener('click', function() {
     isGameStarted = true;
+    points = 0;
     // Pick the initial position when game starts
     pickedPosition = getRandomPosition();
     document.getElementById('message').innerText = 'Apasa pe căsuța ' + pickedPosition;
-  });
 
+    // Start the countdown
+    startCountdown();
+
+    // Game ends in 30 seconds
+    setTimeout(function() {
+      isGameStarted = false;
+      clearInterval(gameTimer); // clear the interval when game ends
+      document.getElementById('message').innerText = 'Jocul s-a terminat. Ai obținut ' + points + ' puncte.';
+      document.getElementById('image').innerHTML = '';
+      timerElement.innerText = ''; // clear the timer text
+    }, 30000);  // 30 seconds in milliseconds
+  });
   // Step 2: Function to pick a random position
   function getRandomPosition() {
     const randomIndex = Math.floor(Math.random() * positions.length);
@@ -272,6 +300,7 @@
       }
     });
   }
+
 </script>
 
 </body>
