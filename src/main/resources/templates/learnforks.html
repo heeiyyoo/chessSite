@@ -114,14 +114,14 @@
   <div class="w3-twothird w3-container">
     <div class="chessboard-container">
       <div class="notation vertical-notation">
-        <div class="notation-item">8</div>
-        <div class="notation-item">7</div>
-        <div class="notation-item">6</div>
-        <div class="notation-item">5</div>
-        <div class="notation-item">4</div>
-        <div class="notation-item">3</div>
-        <div class="notation-item">2</div>
         <div class="notation-item">1</div>
+        <div class="notation-item">2</div>
+        <div class="notation-item">3</div>
+        <div class="notation-item">4</div>
+        <div class="notation-item">5</div>
+        <div class="notation-item">6</div>
+        <div class="notation-item">7</div>
+        <div class="notation-item">8</div>
       </div>
       <div class="board-with-notation">
         <div class="board">
@@ -159,11 +159,11 @@
           <!-- Fourth row -->
           <div class="square black" data-color="black"></div>
           <div class="square white" data-color="white"></div>
-          <div class="square black" data-color="black"></div>
+          <div class="square black" data-color="black"><img class="piece" src="pieces/br.png" draggable="true"></div>
           <div class="square white" data-color="white"></div>
           <div class="square black" data-color="black"></div>
           <div class="square white" data-color="white"></div>
-          <div class="square black" data-color="black"></div>
+          <div class="square black" data-color="black"><img class="piece" src="pieces/bk.png" draggable="true"></div>
           <div class="square white" data-color="white"></div>
 
           <!-- Fifth row -->
@@ -171,7 +171,7 @@
           <div class="square black" data-color="black"></div>
           <div class="square white" data-color="white"></div>
           <div class="square black" data-color="black"></div>
-          <div class="square white" data-color="white"><img class="piece" src="pieces/wr.png" draggable="true"></div>
+          <div class="square white" data-color="white"><img class="piece" src="pieces/wn.png" draggable="true"></div>
           <div class="square black" data-color="black"></div>
           <div class="square white" data-color="white"></div>
           <div class="square black" data-color="black"></div>
@@ -229,19 +229,18 @@
   </div>
   <div class="w3-third w3-container">
     <div class="w3-margin-top w3-left-align">
-      <h2 class="text-subtitle">Cal(Knight)</h2>
-      <p class="text">Calul se mișcă într-un mod foarte specific și diferit față de celelalte piese.
-        Nu se mișcă drept înainte, înapoi, sau diagonal, ca alte piese. În schimb, calul face un fel de mișcare în formă de 'L'.</p>
-      <p class="text">Ce înseamnă asta? Înseamnă că atunci când calul se mișcă, el merge două căsuțe într-o direcție (vertical sau orizontal)
-        și apoi o căsuță într-o direcție perpendiculară pe prima. Dacă te uiți la această mișcare de sus, ea seamănă cu litera 'L'.</p>
-      <p class="text">Un alt aspect interesant despre cal este că el poate sări peste alte piese.
-        Asta înseamnă că nu trebuie să ai o cale liberă pentru a mișca calul.
-        Acest lucru face calul o piesă foarte flexibilă și puternică în jocul de șah.
+      <h2 class="text-subtitle">Furculiță(Fork)</h2>
+      <p class="text">Furculița reprezintă o tactică în care o singură piesă atacă simultan
+        două sau mai multe piese ale adversarului. Scopul acestei tactici este de a
+        crea o situație în care adversarul nu poate să apere toate piesele atacate
+        în același timp, permițând jucătorului care face furculița să câștige material.</p>
+      <p class="text">Un exemplu clasic de furculiță se produce când un cal se mută într-o poziție în care atacă
+        simultan regele și regina adversarului. Din moment ce regula șahului cere ca amenințarea asupra regelui (șahul)
+        să fie înlăturată imediat, adversarul va fi forțat să-și miște regele, lăsând regina nedefendată și gata să fie luată în mutarea următoare.</p>
+      <p class="text">Furculițele pot fi realizate de orice piesă, dar sunt cel mai des efectuate de pioni și cai, din cauza modului neobișnuit în care acestea se
+        mișcă. Un alt aspect de reținut este că furculițele sunt cel mai eficiente atunci când vizează piese de valoare mare, cum ar fi regina și turele.
       </p>
-      <p class="text">Să îți dau un exemplu: dacă calul tău este în poziția 'e5' pe tabla de șah,
-        el poate merge în 'g6', 'g4', 'f3', 'd3', 'c4', 'c6', 'd7', sau 'f7'.
-        Așadar, el poate ajunge în 8 poziții diferite de pe tabla de șah, într-un singur pas.</p>
-      <img src="path/to/your/image.jpg" alt="Image Description">
+
     </div>
   </div>
 </div>
@@ -258,8 +257,10 @@
     <a href="puzzle1" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Puzzle</a>
     <a href="openingKI" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Deschidere</a>
     <a href="coordinates" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Coordonate</a>
+    <a href="login" class="w3-bar-item w3-button w3-hide-small w3-hover-white w3-right">Log In</a>
   </div>
 </div>
+
 
 
 <!-- Sidebar -->
@@ -269,11 +270,11 @@
     <i class="fa fa-remove"></i>
   </a>
   <h4 class="w3-bar-item"><b>Meniu</b></h4>
-  <a class="w3-bar-item w3-button w3-hover-black " href="learnknight">Cal</a>
-  <a class="w3-bar-item w3-button w3-hover-black" href="learnbishop">Nebun</a>
-  <a class="w3-bar-item w3-button w3-hover-black learn-sidebar" href="learnrook">Tură</a>
-  <a class="w3-bar-item w3-button w3-hover-black" href="learnqueen">Regină</a>
-  <a class="w3-bar-item w3-button w3-hover-black" href="learnking">Rege</a>
+  <a class="w3-bar-item w3-button w3-hover-black " href="learncastle">Rocadă</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="learn">En Passant</a>
+  <a class="w3-bar-item w3-button w3-hover-black learn-sidebar" href="learnforks">Furculiță</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="learnqueen">Legatură</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="learnking">Centru</a>
 </nav>
 <!-- Overlay effect when opening sidebar on small screens -->
 <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
@@ -283,7 +284,7 @@
 
   <div class="w3-row w3-padding-64">
     <div class="w3-twothird w3-container">
-      <h1 class="w3-text-teal">Heading</h1>
+
 
 
       <!-- Pagination -->

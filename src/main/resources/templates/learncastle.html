@@ -171,7 +171,7 @@
                     <div class="square black" data-color="black"></div>
                     <div class="square white" data-color="white"></div>
                     <div class="square black" data-color="black"></div>
-                    <div class="square white" data-color="white"><img class="piece" src="pieces/wn.png" draggable="true"></div>
+                    <div class="square white" data-color="white"></div>
                     <div class="square black" data-color="black"></div>
                     <div class="square white" data-color="white"></div>
                     <div class="square black" data-color="black"></div>
@@ -197,14 +197,14 @@
                     <div class="square black" data-color="black"></div>
 
                     <!-- Eighth row -->
-                    <div class="square black" data-color="black"></div>
+                    <div class="square black" data-color="black"><img class="piece" src="pieces/wr.png" draggable="true"></div>
                     <div class="square white" data-color="white"></div>
                     <div class="square black" data-color="black"></div>
                     <div class="square white" data-color="white"></div>
-                    <div class="square black" data-color="black"></div>
+                    <div class="square black" data-color="black"><img class="piece" src="pieces/wk.png" draggable="true"></div>
                     <div class="square white" data-color="white"></div>
                     <div class="square black" data-color="black"></div>
-                    <div class="square white" data-color="white"></div>
+                    <div class="square white" data-color="white"><img class="piece" src="pieces/wr.png" draggable="true"></div>
 
                 </div>
 
@@ -229,20 +229,21 @@
     </div>
     <div class="w3-third w3-container">
         <div class="w3-margin-top w3-left-align">
-            <h2 class="text-subtitle">Cal(Knight)</h2>
-            <p class="text">Calul se mișcă într-un mod foarte specific și diferit față de celelalte piese.
-                Nu se mișcă drept înainte, înapoi, sau diagonal, ca alte piese. În schimb, calul face un fel de mișcare în formă de 'L'.</p>
-            <p class="text">Ce înseamnă asta? Înseamnă că atunci când calul se mișcă, el merge două căsuțe într-o direcție (vertical sau orizontal)
-                și apoi o căsuță într-o direcție perpendiculară pe prima. Dacă te uiți la această mișcare de sus, ea seamănă cu litera 'L'.</p>
-            <p class="text">Un alt aspect interesant despre cal este că el poate sări peste alte piese.
-                Asta înseamnă că nu trebuie să ai o cale liberă pentru a mișca calul.
-                Acest lucru face calul o piesă foarte flexibilă și puternică în jocul de șah.
+            <h2 class="text-subtitle">Rocadă(Castle)</h2>
+            <p class="text">Rocada este o mutare specială în șah, care implică simultan regele și una dintre ture. Este singura mutare
+                din șah în care un jucător mută două piese în același timp. Rocada este folosită pentru a îmbunătăți siguranța regelui și pentru a conecta turele.</p>
+            <p class="text">Există două tipuri de rocada: rocada mică (sau rocada scurtă) și rocada mare (sau rocada lungă).
+                În rocada mică, regele se mută doi pași spre tura de pe coloana h, iar tura se mută pe coloana imediat la stânga regelui (coloana f).
+                În rocada mare, regele se mută doi pași spre tura de pe coloana a, iar tura se mută pe coloana imediat la dreapta regelui (coloana d).</p>
+            <p class="text">Rocada poate fi efectuată numai dacă sunt îndeplinite anumite condiții:
             </p>
-            <p class="text">Să îți dau un exemplu: dacă calul tău este în poziția 'e5' pe tabla de șah,
-                el poate merge în 'g6', 'g4', 'f3', 'd3', 'c4', 'c6', 'd7', sau 'f7'.
-                Așadar, el poate ajunge în 8 poziții diferite de pe tabla de șah, într-un singur pas.</p>
-            <p class="text">Calul valoreaza 3 puncte.</p>
-            <img src="pieces/knightmovement.jpg" style="width: 250px"; alt="Image Description">
+            <ol class="text">
+                <li>Nici regele, nici tura cu care se face rocada nu au fost mutate anterior în joc.</li>
+                <li>Toate câmpurile dintre rege și tura cu care se face rocada sunt libere.</li>
+                <li>Regele nu este în șah.</li>
+                <li>Regele nu trece prin sau nu ajunge pe un câmp care este atacat de o piesă adversă.</li>
+            </ol>
+
         </div>
     </div>
 </div>
@@ -264,6 +265,7 @@
 </div>
 
 
+
 <!-- Sidebar -->
 
 <nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
@@ -271,11 +273,11 @@
         <i class="fa fa-remove"></i>
     </a>
     <h4 class="w3-bar-item"><b>Meniu</b></h4>
-    <a class="w3-bar-item w3-button w3-hover-black learn-sidebar" href="learnknight">Cal</a>
-    <a class="w3-bar-item w3-button w3-hover-black" href="learnbishop">Nebun</a>
-    <a class="w3-bar-item w3-button w3-hover-black" href="learnrook">Tură</a>
-    <a class="w3-bar-item w3-button w3-hover-black" href="learnqueen">Regină</a>
-    <a class="w3-bar-item w3-button w3-hover-black" href="learnking">Rege</a>
+    <a class="w3-bar-item w3-button w3-hover-black learn-sidebar" href="learncastle">Rocadă</a>
+    <a class="w3-bar-item w3-button w3-hover-black" href="learn">En Passant</a>
+    <a class="w3-bar-item w3-button w3-hover-black " href="learnforks">Furculiță</a>
+    <a class="w3-bar-item w3-button w3-hover-black" href="learnqueen">Legatură</a>
+    <a class="w3-bar-item w3-button w3-hover-black" href="learnking">Centru</a>
 </nav>
 <!-- Overlay effect when opening sidebar on small screens -->
 <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
