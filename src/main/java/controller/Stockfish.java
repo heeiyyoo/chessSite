@@ -17,8 +17,6 @@ public class Stockfish {
         this.rt = rt;
         this.proc = rt.exec(proc1);
         this.writer = new PrintWriter(proc.getOutputStream());
-        this.writer.println("position startpos" + "\n");
-        this.getWriter().flush();
     }
 
 
@@ -48,39 +46,5 @@ public class Stockfish {
     }
 
 
-
-    public String readFromInputStream(InputStream inputStream) throws IOException {
-        StringBuilder output = new StringBuilder();
-        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream))) {
-            String line;
-            Pattern p = Pattern.compile("ponder*");
-
-            while ((line = bufferedReader.readLine()) != null) {
-                //System.out.println(line);
-                output.append(line).append('\n');
-                Matcher m = p.matcher(output);
-                if (m.find()) {
-
-                    break;
-
-                }
-            }
-
-        }
-        return output.toString();
-    }
-
-    public String getNextMove() throws IOException {
-        this.writer.println("go movetime 1000 " + "\n");
-        this.getWriter().flush();
-        String output = this.readFromInputStream(this.proc.getInputStream());
-        Pattern p = Pattern.compile("bestmove ([a-h][1-8][a-h][1-8]) ponder");
-        Matcher m = p.matcher(output);
-
-        if (m.find()) {
-            System.out.println(m.group(1));  // prints: e2e4"
-        }
-        return m.group(1);
-    }
 
 }
