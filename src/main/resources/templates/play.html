@@ -10,11 +10,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
 
-        .button-container {
-            position: absolute;
-            top: 60px;
-            right: 10px;
-        }
         .button-container .w3-button {
             display: block;
             margin-bottom: 10px;
@@ -107,14 +102,14 @@
         <div class="player-name-top">Stockfish</div>
         <div class="chessboard-container">
         <div class="notation vertical-notation">
-            <div class="notation-item">8</div>
-            <div class="notation-item">7</div>
-            <div class="notation-item">6</div>
-            <div class="notation-item">5</div>
-            <div class="notation-item">4</div>
-            <div class="notation-item">3</div>
-            <div class="notation-item">2</div>
             <div class="notation-item">1</div>
+            <div class="notation-item">2</div>
+            <div class="notation-item">3</div>
+            <div class="notation-item">4</div>
+            <div class="notation-item">5</div>
+            <div class="notation-item">6</div>
+            <div class="notation-item">7</div>
+            <div class="notation-item">8</div>
         </div>
             <div class="board-with-notation">
                 <div class="board">
@@ -139,7 +134,6 @@
                     <div class="square black" data-color="black" data-position="g7"><img class="piece" src="pieces/bp.png" draggable="true"></div>
                     <div class="square white" data-color="white" data-position="h7"><img class="piece" src="pieces/bp.png" draggable="true"></div>
 
-                    <!-- Third row to Sixth row -->
                     <div class="square white" data-color="white" data-position="a6"></div>
                     <div class="square black" data-color="black" data-position="b6"></div>
                     <div class="square white" data-color="white" data-position="c6"></div>
@@ -214,6 +208,11 @@
     </div>
         </div>
         <div class="player-name-bottom">GM Cobel</div>
+        <div class="w3-third w3-container">
+            <label for="number-input">Alege viteza intre 1 si 100</label>
+            <input id="number-input" type="number" min="1" max="100">
+            <button id="send-button">Send</button>
+        </div>
 </div>
 </div>
 
@@ -230,37 +229,32 @@
     </div>
 </div>
 
-<!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
 <div class="w3-main" style="margin-left:250px">
 
-    <div class="w3-row w3-padding-64">
-        <div class="w3-twothird w3-container">
-            <h1 class="w3-text-teal">Heading</h1>
 
-
-                        <!-- Pagination -->
-
-
-                        <footer id="myFooter">
-                            <div class="w3-container w3-theme-l2 w3-padding-32">
-                                <h4>Footer</h4>
-                            </div>
-
-
-                        </footer>
-
-                        <!-- END MAIN -->
-                    </div>
-
-            </div>
 
     </div>
+</div>
 
 
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 
+    $('#send-button').click(function() {
+        var number = $('#number-input').val();
 
+        $.ajax({
+            url: 'http://localhost:8090/play/dificultate',
+            type: 'POST',
+            data: JSON.stringify({ number: number }),
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            async: false,
+            success: function(msg) {
+                alert('Number sent successfully!');
+            }
+        });
+    });
 
                             const squares = document.querySelectorAll('.square');
                             let pieceBeingDragged;
@@ -269,11 +263,11 @@
 
                             const dragStart = function () {
                                 setTimeout(() => this.className += ' invisible', 0);
-                                origin = this.dataset.position; // track the origin of the piece
+                                origin = this.dataset.position;
                             };
 
                             const dragEnd = function () {
-                                this.className = 'square ' + this.dataset.color; // restore original color
+                                this.className = 'square ' + this.dataset.color;
                             };
 
                             const dragOver = function (e) {
@@ -285,12 +279,12 @@
                             };
 
                             const dragLeave = function () {
-                                // Do nothing
+
                             };
                             const dragDrop = function () {
-                                destination = this.dataset.position; // track the destination of the piece
+                                destination = this.dataset.position;
 
-                                // send move to backend
+
                                 sendMove(origin, destination, this, pieceBeingDragged);
                             };
 
@@ -342,7 +336,7 @@
                                         return response.text();
                                     })
                                     .then(text => {
-                                        // Check if the response text is "OK"
+
                                         if (text === "OK") {
                                             if(tempDestinationSquare.firstChild) {
                                                 tempDestinationSquare.removeChild(tempDestinationSquare.firstChild);
@@ -362,6 +356,7 @@
                                                     origin: origin,
                                                     destination: destination,
                                                     piece: piece
+
                                                 }),
                                             })
                                                 .then(secondResponse => {
@@ -372,22 +367,19 @@
                                                 })
                                                 .then(secondText => {
                                                     console.log("Response from /play/move1: ", secondText);
-                                                    // Assuming secondText is a JSON object with properties 'origin' and 'destination'
-                                                    // Extract origin and destination squares
+
                                                     let aiMove = JSON.parse(secondText);
 
-                                                    // Access properties of the aiMove object
                                                     let aiOrigin = document.querySelector(`[data-position='${aiMove.origin}']`);
                                                     let aiDestination = document.querySelector(`[data-position='${aiMove.destination}']`);
 
-                                                    // Remove piece from origin square
                                                     let aiPiece = aiOrigin.querySelector('.piece');
                                                     aiOrigin.removeChild(aiPiece);
 
                                                     if(aiDestination.firstChild) {
                                                         aiDestination.removeChild(aiDestination.firstChild);
                                                     }
-                                                    // Append piece to destination square
+
                                                     aiDestination.append(aiPiece);
 
                                                     console.log(secondText);

@@ -123,7 +123,6 @@
       <div class="board-with-notation">
         <div class="board">
 
-          <!-- Replace with actual paths to your image files -->
           <div class="square white" data-color="white"><img class="piece" src="pieces/br.png" draggable="true"></div>
           <div class="square black" data-color="black"><img class="piece" src="pieces/bn.png" draggable="true"></div>
           <div class="square white" data-color="white"><img class="piece" src="pieces/bb.png" draggable="true"></div>
@@ -241,35 +240,18 @@
   </div>
 </div>
 
-<!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
 <div class="w3-main" style="margin-left:250px">
 
-  <div class="w3-row w3-padding-64">
-    <div class="w3-twothird w3-container">
-      <footer id="myFooter">
-        <div class="w3-container w3-theme-l2 w3-padding-32">
-          <h4>Footer</h4>
-        </div>
 
-
-      </footer>
-
-      <!-- END MAIN -->
-    </div>
-
-  </div>
 
 </div>
 </div>
 
 <script>
-  // Get the Sidebar
   var mySidebar = document.getElementById("mySidebar");
 
-  // Get the DIV with overlay effect
   var overlayBg = document.getElementById("myOverlay");
 
-  // Toggle between showing and hiding the sidebar, and add overlay effect
   function w3_open() {
     if (mySidebar.style.display === 'block') {
       mySidebar.style.display = 'none';
@@ -280,7 +262,6 @@
     }
   }
 
-  // Close the sidebar with the close button
   function w3_close() {
     mySidebar.style.display = "none";
     overlayBg.style.display = "none";
@@ -293,7 +274,7 @@
   };
 
   const dragEnd = function () {
-    this.className = 'square ' + this.dataset.color; // restore original color
+    this.className = 'square ' + this.dataset.color;
   };
 
   const dragOver = function (e) {
@@ -309,12 +290,10 @@
   };
 
   const dragDrop = function () {
-    // Clear out existing piece if it exists
     while (this.firstChild) {
       this.removeChild(this.firstChild);
     }
 
-    // Add the new piece
     this.append(pieceBeingDragged);
   };
 

@@ -19,7 +19,7 @@ public class Licenta2Application{
     public static void main(String[] args) throws IOException, InterruptedException {
         JChessGame game = JChessGame.newGame();
         List<Move> legalMoves = game.getAvailableMoves();
-        System.out.println(legalMoves.toString());
+        //System.out.println(legalMoves.toString());
         Position position = game.getPosition();
        // game.doMove("e4");
         //System.out.println(game.getAvailableMoves().toString());

@@ -88,6 +88,25 @@ public class GreetingController {
 
         return "coordinates";
     }
+    @PostMapping("/play/dificultate")
+    public ResponseEntity<String> dificultate(@RequestBody NumberInput input) {
+        Integer number = input.getNumber();
+        stockfishServive.setTime(number);
+        System.out.println(number);
+        return new ResponseEntity<>("Number received: " + number, HttpStatus.OK);
+    }
+    public static class NumberInput {
+        private Integer number;
+
+        // getter and setter
+        public Integer getNumber() {
+            return number;
+        }
+
+        public void setNumber(Integer number) {
+            this.number = number;
+        }
+    }
 
     @PostMapping("/play/move")
     public ResponseEntity<String> checkMove(@RequestBody Move1 move1) throws IOException {
@@ -131,6 +150,7 @@ public class GreetingController {
         move1.setDestination(answer.substring(2, 4));
         System.out.println(answer);
         System.out.println(stockfishServive.getGameMoves());
+
         return new ResponseEntity<>(move1, HttpStatus.OK);
 
 

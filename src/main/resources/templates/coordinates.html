@@ -11,14 +11,14 @@
   <style>
 
     body {
-      background-color: #e9e9e9; /* Replace with desired gray color code */
+      background-color: #e9e9e9;
     }
 
     .text {
-      font-size: 17px; /* Adjust the font size as needed */
+      font-size: 17px;
     }
     .text-subtitle {
-      font-size: 45px; /* Adjust the font size as needed */
+      font-size: 45px;
     }
 
     html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
@@ -102,7 +102,6 @@
           <div class="square black" data-color="black" data-position="g7"></div>
           <div class="square white" data-color="white" data-position="h7"></div>
 
-          <!-- The empty squares from third row to sixth row will be similar, I'll only add one row for brevity -->
           <div class="square white" data-color="white" data-position="a6"></div>
           <div class="square black" data-color="black" data-position="b6"></div>
           <div class="square white" data-color="white" data-position="c6"></div>
@@ -192,31 +191,7 @@
 </div>
 
 
-<!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
-<div class="w3-main" style="margin-left:250px">
 
-  <div class="w3-row w3-padding-64">
-    <div class="w3-twothird w3-container">
-      <h1 class="w3-text-teal">Heading</h1>
-
-
-      <!-- Pagination -->
-
-
-      <footer id="myFooter">
-        <div class="w3-container w3-theme-l2 w3-padding-32">
-          <h4>Footer</h4>
-        </div>
-
-
-      </footer>
-
-      <!-- END MAIN -->
-    </div>
-
-  </div>
-
-</div>
 </div>
 
 <script>
@@ -234,80 +209,75 @@
   let points = 0;
   let pickedPosition;
 
-  // Get the start button
   const startButton = document.getElementById('start-game');
-  const timerElement = document.getElementById('timer'); // assuming you have a timer element in your HTML
-  // Add a click event to start the game
+  const timerElement = document.getElementById('timer');
+
   startButton.addEventListener('click', function() {
     isGameStarted = true;
     points = 0;
-    // Pick the initial position when game starts
     pickedPosition = getRandomPosition();
     document.getElementById('message').innerText = 'Apasa pe căsuța ' + pickedPosition;
 
-    // Game ends in 30 seconds
     setTimeout(function() {
       isGameStarted = false;
       document.getElementById('message').innerText = 'Jocul s-a terminat. Ai obținut ' + points + ' puncte.';
       document.getElementById('image').innerHTML = '';
-    }, 30000);  // 30 seconds in milliseconds
+    }, 30000);
   });
 
   function startCountdown() {
     let timeLeft = 30;
 
-    timerElement.innerText = timeLeft + ' secunde rămase'; // initially set the timer to 30 seconds
+    timerElement.innerText = timeLeft + ' secunde rămase';
 
-    // decrease the time left by one every second
     gameTimer = setInterval(function() {
       timeLeft--;
       timerElement.innerText = timeLeft + ' secunde rămase';
 
-      // when time runs out, stop the timer and end the game
 
     }, 1000);
   }
   startButton.addEventListener('click', function() {
     isGameStarted = true;
     points = 0;
-    // Pick the initial position when game starts
+
     pickedPosition = getRandomPosition();
     document.getElementById('message').innerText = 'Apasa pe căsuța ' + pickedPosition;
 
-    // Start the countdown
+
     startCountdown();
 
-    // Game ends in 30 seconds
+
     setTimeout(function() {
       isGameStarted = false;
-      clearInterval(gameTimer); // clear the interval when game ends
+      clearInterval(gameTimer);
       document.getElementById('message').innerText = 'Jocul s-a terminat. Ai obținut ' + points + ' puncte.';
       document.getElementById('image').innerHTML = '';
-      timerElement.innerText = ''; // clear the timer text
-    }, 30000);  // 30 seconds in milliseconds
+      timerElement.innerText = '';
+    }, 30000);
   });
-  // Step 2: Function to pick a random position
+
   function getRandomPosition() {
     const randomIndex = Math.floor(Math.random() * positions.length);
     return positions[randomIndex];
   }
 
-  // Step 4: Event listener for squares
+
   const squares = document.getElementsByClassName('square');
   for(let i=0; i < squares.length; i++) {
     squares[i].addEventListener('click', function() {
-      // Only respond to clicks if the game has started
+
       if(isGameStarted) {
         const clickedPosition = this.getAttribute('data-position');
         if(clickedPosition === pickedPosition) {
           points += 3;
           document.getElementById('message').innerText = 'Bravo! Ai apăsat pe căsuța corectă.';
           document.getElementById('image').innerHTML = '<img src="pieces/Green_tick.png " style="width: 250px;">';
-          // Pick another position for the next round only when the correct square was guessed
+
           pickedPosition = getRandomPosition();
           document.getElementById('message').innerText = 'Apasa pe căsuța ' + pickedPosition;
         } else {
-          points -= 1; // Deduct points for wrong guess
+          points -= 1;
           document.getElementById('message').innerText = 'Ai apăsat pe căsuța greșită. Continua să încerci să apăși pe căsuța ' + pickedPosition + '.';
           document.getElementById('image').innerHTML = '<img src="pieces/Red_X.png" style="width: 250px;">';
         }

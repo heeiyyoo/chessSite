@@ -19,6 +19,26 @@ public class StockfishServive {
     List<Move> legalMoves = game.getAvailableMoves();
     User user = new User(stockfish);
 
+    public String getCp() {
+        return cp;
+    }
+
+    public void setCp(String cp) {
+        this.cp = cp;
+    }
+
+    String cp = "0";
+
+    public int getTime() {
+        return time;
+    }
+
+    public void setTime(int time) {
+        this.time = time;
+    }
+
+    int time = 10;
+
     public String getGameMoves() {
         return gameMoves;
     }
@@ -98,7 +118,6 @@ public class StockfishServive {
         else this.updateGame(moveableAtLocation.getClass().toString().charAt(37) + nextMove.substring(2, 4));
         System.out.println("characterul e " +moveableAtLocation.getClass().toString().charAt(38));
         gameMoves +=  nextMove + " ";
-        ASCIIPositionRenderer.render(System.out, game.getPosition());
         return nextMove;
     }
     public void updateGame(String move){
@@ -108,7 +127,7 @@ public class StockfishServive {
 
     public String getNextMove() throws IOException {
         stockfish.getWriter().println("position startpos moves " + gameMoves + "\n");
-        stockfish.getWriter().println("go movetime 1000 " + "\n");
+        stockfish.getWriter().println("go movetime " + this.getTime()*10  + "\n");
         stockfish.getWriter().flush();
         String output = this.readFromInputStream(stockfish.getProc().getInputStream());
         Pattern p = Pattern.compile("bestmove ([a-h][1-8][a-h][1-8]) ponder");
@@ -123,6 +142,18 @@ public class StockfishServive {
                 System.out.println(m.group(1));  // prints: e2e4"
             }
         }
+        Pattern p1 = Pattern.compile("score cp (\\d+)");
+        Matcher m1 = p1.matcher(output);
+        String score = "";
+        while (m1.find()) {
+            score = m1.group(1); // the last score found will be saved
+        }
+
+        if (!score.isEmpty()) {
+            System.out.println("Score: " + score);
+            this.setCp(score);
+        }
+
         return m.group(1);
     }
 }
